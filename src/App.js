@@ -1,4 +1,5 @@
 import { Box, Heading } from '@chakra-ui/react'
+import Leaderboard from './Leaderboard/Leaderboard'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
           Leaderboard
         </Heading>
       </header>
+      <Leaderboard />
     </Box>
   )
 }
