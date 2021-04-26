@@ -2,9 +2,11 @@ import { Box, Heading } from '@chakra-ui/react'
 
 function App() {
   return (
-    <Box w="100%" minH="100vh" bg="purple.900" className="App">
+    <Box w="100%" bg="purple.900" className="App">
       <header className="App-header">
-        <Heading color="white">Hello World</Heading>
+        <Heading color="white" textAlign="center" my={6}>
+          Leaderboard
+        </Heading>
       </header>
     </Box>
   )
