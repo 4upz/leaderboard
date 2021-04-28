@@ -5,7 +5,7 @@ import LeaderboardItem from './LeaderboardItem'
 
 function LeaderboardList() {
   return (
-    <Flex m="20px" direction="column" align="center">
+    <Flex m="6" direction="column" align="center">
       {users.map((user) => (
         <LeaderboardItem key={user.id} user={user} />
       ))}

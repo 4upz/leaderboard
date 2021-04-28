@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from '@chakra-ui/layout'
+import { Box } from '@chakra-ui/react'
 import Filter from './Filter'
 import LeaderboardList from './LeaderboardList'
 import TopThree from './TopThree'

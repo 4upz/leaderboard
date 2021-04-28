@@ -1,8 +1,16 @@
 import React from 'react'
-import { Heading } from '@chakra-ui/layout'
+import { Button, ButtonGroup, Flex } from '@chakra-ui/react'
 
 function Filter() {
-  return <Heading>Filter</Heading>
+  return (
+    <Flex my="6" justify="center" flex>
+      <ButtonGroup spacing="4" variant="ghost" colorScheme="whiteAlpha">
+        <Button>Week</Button>
+        <Button mx="0">Month</Button>
+        <Button>All</Button>
+      </ButtonGroup>
+    </Flex>
+  )
 }
 
 export default Filter
