@@ -10,20 +10,17 @@ function LeaderboardItem({ place, user }) {
       </Stat>
       <Box bg="whiteAlpha.400" py={2} px={5} borderRadius="20px" justifySelf="center" w="90%">
         <HStack justify="space-between">
-          <Avatar bg="teal.500" />
+          <Avatar bg="purple.700" />
           <Text color="white">{user.name}</Text>
           <Text color="white">
             <Text as="span" color="green.300">
-              W{' '}
+              {user.wins}{' '}
             </Text>
-            - {user.wins}{' '}
-            <Text as="span" color="purple.200">
-              |{' '}
-            </Text>
+            |
             <Text as="span" color="red.300">
-              L
-            </Text>{' '}
-            - {user.losses}
+              {' '}
+              {user.losses}
+            </Text>
           </Text>
         </HStack>
       </Box>
