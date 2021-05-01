@@ -6,7 +6,7 @@ function Filter() {
     <Flex my="6" justify="center" flex>
       <ButtonGroup spacing="4" variant="ghost" colorScheme="whiteAlpha">
         <Button>Week</Button>
-        <Button mx="0">Month</Button>
+        <Button>Month</Button>
         <Button>All</Button>
       </ButtonGroup>
     </Flex>

@@ -1,29 +1,29 @@
 import React from 'react'
 import { Flex, Box, Stat, StatNumber, StatArrow, Avatar, HStack, Text } from '@chakra-ui/react'
 
-function LeaderboardItem() {
+function LeaderboardItem({ place, user }) {
   return (
-    <Flex w="400px" my={3}>
+    <Flex w="400px" my={3} align="center">
       <Stat w="15px" size="md">
-        <StatNumber color="white">4</StatNumber>
+        <StatNumber color="white">{place}</StatNumber>
         <StatArrow type="increase" />
       </Stat>
       <Box bg="whiteAlpha.400" py={2} px={5} borderRadius="20px" justifySelf="center" w="90%">
         <HStack justify="space-between">
           <Avatar bg="teal.500" />
-          <Text color="white">User Name</Text>
+          <Text color="white">{user.name}</Text>
           <Text color="white">
-            <Text as="span" color="green.200">
+            <Text as="span" color="green.300">
               W{' '}
             </Text>
-            - 2{' '}
-            <Text as="span" color="purple.50">
+            - {user.wins}{' '}
+            <Text as="span" color="purple.200">
               |{' '}
             </Text>
-            <Text as="span" color="red.200">
+            <Text as="span" color="red.300">
               L
             </Text>{' '}
-            - 4
+            - {user.losses}
           </Text>
         </HStack>
       </Box>

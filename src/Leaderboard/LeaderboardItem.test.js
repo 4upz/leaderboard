@@ -1,18 +1,22 @@
 import { shallow } from 'enzyme'
 import LeaderboardItem from './LeaderboardItem'
-import { Flex, Stat, Box, Avatar, Text } from '@chakra-ui/react'
+import { Flex, Stat, StatNumber, Box, Avatar, Text } from '@chakra-ui/react'
+import users from '../mocks/users'
+
+const mockUser = users[0]
 
 describe('Leaderboard Item', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = shallow(<LeaderboardItem />)
+    wrapper = shallow(<LeaderboardItem place={1} user={mockUser} />)
   })
-  it('renders a flex container and spacing for its content', () => {
+  it('renders a flex container for its content', () => {
     expect(wrapper.find(Flex).length).toBe(1)
   })
 
-  it('renders a Stat component for the user position number', () => {
+  it('renders a Stat number component for the user position number', () => {
     expect(wrapper.find(Stat).length).toBe(1)
+    expect(wrapper.find(StatNumber).text()).toBe('1')
   })
 
   it('renders a box as the container for the user information', () => {
@@ -25,11 +29,12 @@ describe('Leaderboard Item', () => {
     })
 
     it('renders text for the user display name', () => {
-      expect(wrapper.find(Text).first().text()).toBe('User Name')
+      expect(wrapper.find(Text).first().text()).toBe(mockUser.name)
     })
 
     it('renders the user win and loss record', () => {
-      expect(wrapper.find(Text).at(1).text()).toBe('W - 2 | L - 4')
+      const expected = `W - ${mockUser.wins} | L - ${mockUser.losses}`
+      expect(wrapper.find(Text).at(1).text()).toBe(expected)
     })
   })
 })
