@@ -33,7 +33,7 @@ describe('Leaderboard Item', () => {
     })
 
     it('renders the user win and loss record', () => {
-      const expected = `${mockUser.wins} | ${mockUser.losses}`
+      const expected = `${mockUser.wins}-${mockUser.losses}`
       expect(wrapper.find(Text).at(1).text()).toBe(expected)
     })
   })

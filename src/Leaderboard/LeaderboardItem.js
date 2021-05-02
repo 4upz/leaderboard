@@ -14,11 +14,10 @@ function LeaderboardItem({ place, user }) {
           <Text color="white">{user.name}</Text>
           <Text color="white">
             <Text as="span" color="green.300">
-              {user.wins}{' '}
+              {user.wins}
             </Text>
-            |
+            -
             <Text as="span" color="red.300">
-              {' '}
               {user.losses}
             </Text>
           </Text>
