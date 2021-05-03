@@ -1,13 +1,12 @@
 import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import LeaderboardItem from './LeaderboardItem'
-import users from '../mocks/users'
 
-function LeaderboardList() {
+function LeaderboardList({ users }) {
   return (
     <Flex m="6" direction="column" align="center">
       {users.map((user, index) => (
-        <LeaderboardItem key={user.id} place={index + 1} user={user} />
+        <LeaderboardItem key={user.id} place={3 + index} user={user} />
       ))}
     </Flex>
   )

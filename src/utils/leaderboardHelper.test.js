@@ -15,4 +15,10 @@ describe('Leaderboard Helpers Utility', () => {
     const result = leaderboardHelper.firstThreeOf(mockUsers)
     expect(result).toEqual(expectedResults)
   })
+
+  it('retrieves the list while excluding the first three elements', () => {
+    const expectedResults = [mockUsers[3], mockUsers[4], mockUsers[5]]
+    const result = leaderboardHelper.afterFirstThreeOf(mockUsers)
+    expect(result).toEqual(expectedResults)
+  })
 })

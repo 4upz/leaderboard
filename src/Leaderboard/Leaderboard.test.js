@@ -30,4 +30,11 @@ describe('Leaderboard View', () => {
     const expectedProps = leaderboardHelpers.firstThreeOf(sortedUsers)
     expect(topThreeComponent.props().users).toEqual(expectedProps)
   })
+
+  it('sends the rest of the users who are not top three to the Leaderboard List', () => {
+    const leaderboardList = wrapper.find(LeaderboardList)
+    const sortedUsers = leaderboardHelpers.sortByScore(mockUsers)
+    const expectedProps = leaderboardHelpers.afterFirstThreeOf(sortedUsers)
+    expect(leaderboardList.props().users).toEqual(expectedProps)
+  })
 })

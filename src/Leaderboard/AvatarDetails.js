@@ -1,7 +1,7 @@
 import React from 'react'
 import { AvatarBadge, Text } from '@chakra-ui/react'
 
-function AvatarDetails({ placement, placementSize, nameBottom, nameSize, scoreBottom, scoreFontSize }) {
+function AvatarDetails({ user, placement, placementSize, nameBottom, nameSize, scoreBottom, scoreFontSize }) {
   const placementBadgeProps = {
     boxSize: '1.5em',
     bg: 'yellow.300',
@@ -31,14 +31,14 @@ function AvatarDetails({ placement, placementSize, nameBottom, nameSize, scoreBo
   return (
     <>
       <AvatarBadge {...placementBadgeProps}>{placement}</AvatarBadge>
-      <AvatarBadge {...nameBadgeProps}>User</AvatarBadge>
+      <AvatarBadge {...nameBadgeProps}>{user.name}</AvatarBadge>
       <AvatarBadge {...nameBadgeProps} {...scoreBadgeProps}>
-        <Text as="span" color="yellow.300" fontWeight="bold">
-          {11}
+        <Text as="span" color="yellow.300" fontWeight="bold" textShadow="0 0 10px rgba(246, 224, 94, 1)">
+          {user.wins}
         </Text>
         -
         <Text as="span" color="red.300">
-          {12}
+          {user.losses}
         </Text>
       </AvatarBadge>
     </>

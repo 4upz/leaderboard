@@ -2,11 +2,12 @@ import { shallow } from 'enzyme'
 import TopThreeList from './TopThreeList'
 import { Avatar, AvatarGroup, Flex } from '@chakra-ui/react'
 import AvatarDetails from './AvatarDetails'
+import mockUsers from '../mocks/users'
 
 describe('Top Three', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = shallow(<TopThreeList />)
+    wrapper = shallow(<TopThreeList users={mockUsers} />)
   })
 
   it('renders a Flex container and an AvatarGroup for its content', () => {

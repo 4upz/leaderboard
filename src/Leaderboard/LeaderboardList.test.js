@@ -7,13 +7,13 @@ import mockUsers from '../mocks/users'
 describe('Leaderboard List', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = shallow(<LeaderboardList />)
+    wrapper = shallow(<LeaderboardList users={mockUsers} />)
   })
   it('renders a flex container for the list', () => {
     expect(wrapper.find(Flex).length).toBe(1)
   })
 
-  it('displays a list of LeaderboardItems for every mocked user', () => {
+  it('displays a list of LeaderboardItems for every given user', () => {
     wrapper.update()
     expect(wrapper.find(LeaderboardItem).length).toBe(mockUsers.length)
   })
