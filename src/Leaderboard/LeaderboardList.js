@@ -6,7 +6,7 @@ function LeaderboardList({ users }) {
   return (
     <Flex m="6" direction="column" align="center">
       {users.map((user, index) => (
-        <LeaderboardItem key={user.id} place={3 + index} user={user} />
+        <LeaderboardItem key={user.id} place={4 + index} user={user} />
       ))}
     </Flex>
   )
