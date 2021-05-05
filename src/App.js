@@ -6,7 +6,7 @@ const containerProps = {
   align: 'center',
   w: '100%',
   bgGradient: 'linear(to-tr, purple.700, purple.900)',
-  height: '100vh',
+  height: ['initial', '100vh'],
   py: 6,
   className: 'App',
 }

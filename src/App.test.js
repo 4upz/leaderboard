@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme'
-import { Box, Heading } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import App from './App'
 import Leaderboard from './Leaderboard/Leaderboard'
 
@@ -9,9 +9,7 @@ describe('App', () => {
     wrapper = shallow(<App />)
   })
   it('renders a container for the App', () => {
-    expect(wrapper.find(Box).length).toBe(1)
-    expect(wrapper.find('header').length).toBe(1)
-    expect(wrapper.find(Heading).text()).toBe('Leaderboard')
+    expect(wrapper.find(Flex).length).toBe(1)
   })
 
   it('renders a Leaderboard component', () => {

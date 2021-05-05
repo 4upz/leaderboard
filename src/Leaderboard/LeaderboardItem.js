@@ -3,7 +3,7 @@ import { Flex, Box, Stat, StatNumber, StatArrow, Avatar, HStack, Text } from '@c
 
 function LeaderboardItem({ place, user }) {
   return (
-    <Flex w="400px" my={3} align="center">
+    <Flex w="300px" my={3} align="center">
       <Stat w="15px" size="md">
         <StatNumber color="white">{place}</StatNumber>
         <StatArrow type={user.hasIncreased ? 'increase' : 'decrease'} />

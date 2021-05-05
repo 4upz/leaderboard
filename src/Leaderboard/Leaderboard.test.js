@@ -1,6 +1,5 @@
 import { shallow } from 'enzyme'
 import Leaderboard from './Leaderboard'
-import Filter from './Filter'
 import TopThreeList from './TopThreeList'
 import LeaderboardList from './LeaderBoardList'
 import mockUsers from '../mocks/users'
@@ -10,10 +9,6 @@ describe('Leaderboard View', () => {
   let wrapper
   beforeEach(() => {
     wrapper = shallow(<Leaderboard />)
-  })
-
-  it('renders filters for the list', () => {
-    expect(wrapper.find(Filter).length).toBe(1)
   })
 
   it('renders a view for the top 3 in the list', () => {
