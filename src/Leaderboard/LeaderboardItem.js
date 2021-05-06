@@ -1,10 +1,10 @@
 import React from 'react'
-import { Flex, Box, Stat, StatNumber, StatArrow, Avatar, HStack, Text } from '@chakra-ui/react'
+import { Avatar, Box, Flex, HStack, Stat, StatArrow, StatNumber, Text } from '@chakra-ui/react'
 
 function LeaderboardItem({ place, user }) {
   return (
-    <Flex w="300px" my={3} align="center">
-      <Stat w="15px" size="md">
+    <Flex w={['100%', '50%']} my={3} align="center">
+      <Stat w="15px" size="md" mx={3}>
         <StatNumber color="white">{place}</StatNumber>
         <StatArrow type={user.hasIncreased ? 'increase' : 'decrease'} />
       </Stat>

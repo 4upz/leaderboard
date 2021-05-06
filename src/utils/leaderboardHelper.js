@@ -1,4 +1,4 @@
-import { sort, descend, slice } from 'ramda'
+import { descend, slice, sort } from 'ramda'
 
 /** A list of helper functions for the leaderboard */
 const leaderboardHelpers = {

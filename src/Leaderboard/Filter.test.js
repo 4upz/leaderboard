@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme'
-import { Flex, Button, ButtonGroup } from '@chakra-ui/react'
+import { Button, ButtonGroup, Flex } from '@chakra-ui/react'
 import Filter from './Filter'
 
 describe('Filter Buttons', () => {

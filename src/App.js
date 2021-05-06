@@ -1,11 +1,11 @@
-import Leaderboard from './Leaderboard/Leaderboard'
+import LeaderboardContainer from './Leaderboard/LeaderboardContainer'
 import { Flex } from '@chakra-ui/react'
 
 const containerProps = {
   justify: 'center',
   align: 'center',
   w: '100%',
-  bgGradient: 'linear(to-tr, purple.700, purple.900)',
+  bgGradient: 'linear(to-tr, pink.300, purple.500)',
   height: ['initial', '100vh'],
   py: 6,
   className: 'App',
@@ -14,7 +14,7 @@ const containerProps = {
 function App() {
   return (
     <Flex {...containerProps}>
-      <Leaderboard />
+      <LeaderboardContainer />
     </Flex>
   )
 }

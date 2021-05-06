@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme'
-import Leaderboard from './Leaderboard'
+import LeaderboardContainer from '../Leaderboard/LeaderboardContainer'
 import TopThreeList from './TopThreeList'
 import LeaderboardList from './LeaderBoardList'
 import mockUsers from '../mocks/users'
@@ -8,7 +8,7 @@ import leaderboardHelpers from '../utils/leaderboardHelper'
 describe('Leaderboard View', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = shallow(<Leaderboard />)
+    wrapper = shallow(<LeaderboardContainer />)
   })
 
   it('renders a view for the top 3 in the list', () => {

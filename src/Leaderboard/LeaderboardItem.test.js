@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme'
 import LeaderboardItem from './LeaderboardItem'
-import { Flex, Stat, StatNumber, Box, Avatar, Text } from '@chakra-ui/react'
+import { Avatar, Box, Flex, Stat, StatNumber, Text } from '@chakra-ui/react'
 import users from '../mocks/users'
 
 const mockUser = users[0]

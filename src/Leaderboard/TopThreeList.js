@@ -1,6 +1,6 @@
 import React from 'react'
 import AvatarDetails from './AvatarDetails'
-import { Flex, AvatarGroup, Avatar } from '@chakra-ui/react'
+import { Avatar, AvatarGroup, Flex } from '@chakra-ui/react'
 
 const avatarProps = {
   showBorder: true,
