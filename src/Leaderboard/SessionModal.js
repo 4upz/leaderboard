@@ -12,9 +12,9 @@ import {
   Stack,
 } from '@chakra-ui/react'
 
-export function SessionModal({ isOpen, onClose, users }) {
+export function SessionModal({ isOpen, onClose, users, startSession }) {
   const initialSessionUsers = { playerOneID: -1, playerTwoID: -1, spectatorID: -1 }
-  const [sessionUsers, setSessionUsers] = React.useState(initialSessionUsers)
+  const [sessionUserIDs, setSessionUserIDs] = React.useState(initialSessionUsers)
 
   const userOptionsFor = (selectedUser) =>
     users
@@ -27,14 +27,19 @@ export function SessionModal({ isOpen, onClose, users }) {
 
   const unselectedUsers = ({ id }, selectedUser) => {
     if (id === selectedUser) return true
-    return id !== sessionUsers.playerOneID && id !== sessionUsers.playerTwoID && id !== sessionUsers.spectatorID
+    return id !== sessionUserIDs.playerOneID && id !== sessionUserIDs.playerTwoID && id !== sessionUserIDs.spectatorID
   }
 
   const hasNotSelectedValidUsers = () =>
-    sessionUsers.playerOneID < 0 || sessionUsers.playerTwoID < 0 || sessionUsers.spectatorID < 0
+    sessionUserIDs.playerOneID < 0 || sessionUserIDs.playerTwoID < 0 || sessionUserIDs.spectatorID < 0
 
   const handleChange = (event) => {
-    setSessionUsers({ ...sessionUsers, [event.target.name]: parseInt(event.target.value) || -1 })
+    setSessionUserIDs({ ...sessionUserIDs, [event.target.name]: parseInt(event.target.value) || -1 })
+  }
+
+  const handleClose = () => {
+    onClose()
+    startSession(sessionUserIDs)
   }
 
   return (
@@ -47,28 +52,33 @@ export function SessionModal({ isOpen, onClose, users }) {
           <Stack spacing={6}>
             <Select
               name="playerOneID"
-              value={sessionUsers.playerOneID}
+              value={sessionUserIDs.playerOneID}
               onChange={handleChange}
               placeholder="Player One"
             >
-              {userOptionsFor(sessionUsers.playerOneID)}
+              {userOptionsFor(sessionUserIDs.playerOneID)}
             </Select>
             <Select
               name="playerTwoID"
-              value={sessionUsers.playerTwoID}
+              value={sessionUserIDs.playerTwoID}
               onChange={handleChange}
               placeholder="Player Two"
             >
-              {userOptionsFor(sessionUsers.playerTwoID)}
+              {userOptionsFor(sessionUserIDs.playerTwoID)}
             </Select>
-            <Select name="spectatorID" value={sessionUsers.spectatorID} onChange={handleChange} placeholder="Spectator">
-              {userOptionsFor(sessionUsers.spectatorID)}
+            <Select
+              name="spectatorID"
+              value={sessionUserIDs.spectatorID}
+              onChange={handleChange}
+              placeholder="Spectator"
+            >
+              {userOptionsFor(sessionUserIDs.spectatorID)}
             </Select>
           </Stack>
         </ModalBody>
 
         <ModalFooter>
-          <Button isDisabled={hasNotSelectedValidUsers()} colorScheme="whiteAlpha" onClick={onClose}>
+          <Button isDisabled={hasNotSelectedValidUsers()} colorScheme="whiteAlpha" onClick={handleClose}>
             Create
           </Button>
         </ModalFooter>

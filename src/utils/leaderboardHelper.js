@@ -1,4 +1,4 @@
-import { descend, slice, sort } from 'ramda'
+import { descend, slice, sort, find, propEq } from 'ramda'
 
 /** A list of helper functions for the leaderboard */
 const leaderboardHelpers = {
@@ -14,6 +14,10 @@ const leaderboardHelpers = {
   /** Retrieves elements after the first three list of users */
   afterFirstThreeOf(users) {
     return slice(3, Infinity, users)
+  },
+  getUserByID(userID, users) {
+    const hasID = propEq('id', userID)
+    return find(hasID, users)
   },
 }
 

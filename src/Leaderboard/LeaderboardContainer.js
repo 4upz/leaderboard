@@ -4,7 +4,7 @@ import LeaderboardList from './LeaderboardList'
 import TopThreeList from './TopThreeList'
 import leaderboardHelper from '../utils/leaderboardHelper'
 import users from '../mocks/users'
-import LeaderboardSession from './LeaderboardSession'
+import SessionContainer from './SessionContainer'
 
 const containerProps = {
   p: 3,
@@ -43,7 +43,7 @@ function LeaderboardContainer() {
             <Leaderboard topThreeUsers={topThreeUsers} remainingUsers={remainingUsers} />
           </TabPanel>
           <TabPanel>
-            <LeaderboardSession users={availableUsers} />
+            <SessionContainer users={availableUsers} />
           </TabPanel>
         </TabPanels>
       </Tabs>
