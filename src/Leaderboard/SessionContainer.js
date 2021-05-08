@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDisclosure } from '@chakra-ui/react'
+import Session from './Session'
+import SessionIntro from './SessionIntro'
 import leaderboardHelper from '../utils/leaderboardHelper'
-import { Session } from './Session'
-import { SessionIntro } from './SessionIntro'
 
 function SessionContainer({ users }) {
   const [isStarted, setStarted] = React.useState(false)

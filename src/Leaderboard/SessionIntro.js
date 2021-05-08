@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Container, Flex, Heading } from '@chakra-ui/react'
 import { SessionModal } from './SessionModal'
 
-export function SessionIntro({ users, onClick, onClose, isOpen, handleSessionStart }) {
+function SessionIntro({ users, onClick, onClose, isOpen, handleSessionStart }) {
   return (
     <Flex flexDir="column" align="center">
       <Heading color="white" textAlign="center" my={6}>
@@ -20,3 +20,5 @@ export function SessionIntro({ users, onClick, onClose, isOpen, handleSessionSta
     </Flex>
   )
 }
+
+export default SessionIntro

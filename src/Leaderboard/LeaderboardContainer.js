@@ -11,7 +11,7 @@ const containerProps = {
   minH: '90vh',
   width: ['100%', '60%'],
   bgGradient: 'linear(to-br, rgba(85, 60, 154, 0.7), rgba(85, 60, 154, 0.3))',
-  borderRadius: '2rem',
+  rounded: '3xl',
 }
 
 function Leaderboard({ topThreeUsers, remainingUsers }) {
