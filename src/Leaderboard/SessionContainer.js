@@ -6,7 +6,7 @@ import leaderboardHelper from '../utils/leaderboardHelper'
 function SessionContainer({ users, handleUserUpdate }) {
   const [isStarted, setStarted] = React.useState(false)
   const [sessionUsers, setSessionUsers] = React.useState({})
-  l
+
   const openSession = (sessionUsers) => {
     setStarted(true)
     setSessionUsers({
