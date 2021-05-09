@@ -1,10 +1,9 @@
 import React from 'react'
-import { Box, Heading, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
-import LeaderboardList from './LeaderboardList'
-import TopThreeList from './TopThreeList'
+import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
 import leaderboardHelper from '../utils/leaderboardHelper'
-import users from '../mocks/users'
 import SessionContainer from './SessionContainer'
+import Leaderboard from './Leaderboard'
+import users from '../mocks/users'
 
 const containerProps = {
   p: 3,
@@ -14,22 +13,13 @@ const containerProps = {
   rounded: '3xl',
 }
 
-function Leaderboard({ topThreeUsers, remainingUsers }) {
-  return (
-    <Box>
-      <Heading color="white" textAlign="center" my={6}>
-        Leaderboard
-      </Heading>
-      <TopThreeList users={topThreeUsers} />
-      <LeaderboardList users={remainingUsers} />
-    </Box>
-  )
-}
-
 function LeaderboardContainer() {
-  const [availableUsers] = React.useState(leaderboardHelper.sortByScore(users))
+  const [availableUsers, updateAvailableUsers] = React.useState(leaderboardHelper.sortByScore(users))
   const topThreeUsers = leaderboardHelper.firstThreeOf(availableUsers)
   const remainingUsers = leaderboardHelper.afterFirstThreeOf(availableUsers)
+
+  const handleUserUpdate = (updatedUsers) => updateAvailableUsers(leaderboardHelper.sortByScore(updatedUsers))
+
   return (
     <Box {...containerProps} py={6}>
       <Tabs align="center" variant="solid-rounded" colorScheme="pink">
@@ -43,7 +33,7 @@ function LeaderboardContainer() {
             <Leaderboard topThreeUsers={topThreeUsers} remainingUsers={remainingUsers} />
           </TabPanel>
           <TabPanel>
-            <SessionContainer users={availableUsers} />
+            <SessionContainer users={availableUsers} handleUserUpdate={handleUserUpdate} />
           </TabPanel>
         </TabPanels>
       </Tabs>

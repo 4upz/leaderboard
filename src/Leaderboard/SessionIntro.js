@@ -1,8 +1,10 @@
 import React from 'react'
-import { Button, Container, Flex, Heading } from '@chakra-ui/react'
+import { Button, Container, Flex, Heading, useDisclosure } from '@chakra-ui/react'
 import { SessionModal } from './SessionModal'
 
-function SessionIntro({ users, onClick, onClose, isOpen, handleSessionStart }) {
+function SessionIntro({ users, handleSessionStart }) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
     <Flex flexDir="column" align="center">
       <Heading color="white" textAlign="center" my={6}>
@@ -12,7 +14,7 @@ function SessionIntro({ users, onClick, onClose, isOpen, handleSessionStart }) {
         Start a new 1v1 session between players on this leaderboard. An additional player will be required to act as the
         spectator in order to validate the series. May the best man win.
       </Container>
-      <Button colorScheme="whiteAlpha" size="lg" my={6} onClick={onClick}>
+      <Button colorScheme="whiteAlpha" size="lg" my={6} onClick={onOpen}>
         Start a new session
       </Button>
 

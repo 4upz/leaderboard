@@ -1,15 +1,13 @@
 import React from 'react'
-import { useDisclosure } from '@chakra-ui/react'
 import Session from './Session'
 import SessionIntro from './SessionIntro'
 import leaderboardHelper from '../utils/leaderboardHelper'
 
-function SessionContainer({ users }) {
+function SessionContainer({ users, handleUserUpdate }) {
   const [isStarted, setStarted] = React.useState(false)
   const [sessionUsers, setSessionUsers] = React.useState({})
-  const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const startSession = (sessionUsers) => {
+  const openSession = (sessionUsers) => {
     setStarted(true)
     setSessionUsers({
       playerOne: leaderboardHelper.getUserByID(sessionUsers.playerOneID, users),
@@ -18,27 +16,35 @@ function SessionContainer({ users }) {
     })
   }
 
-  const cancelSession = () => {
+  const closeSession = () => {
     setSessionUsers({})
     setStarted(false)
   }
 
-  const endSession = () => {
-    cancelSession()
+  const endSession = (sessionWins) => {
+    const playerOneTotalWins = sessionUsers.playerOne.wins + sessionWins.playerOne
+    const playerTwoTotalWins = sessionUsers.playerTwo.wins + sessionWins.playerTwo
+    const updatedPlayerOne = {
+      ...sessionUsers.playerOne,
+      wins: playerOneTotalWins,
+      losses: sessionUsers.playerOne.losses + sessionWins.playerTwo,
+    }
+    const updatedPlayerTwo = {
+      ...sessionUsers.playerTwo,
+      wins: playerTwoTotalWins,
+      losses: sessionUsers.playerTwo.losses + sessionWins.playerOne,
+    }
+    let updatedUsers = [...users]
+    updatedUsers[updatedUsers.indexOf(sessionUsers.playerOne)] = updatedPlayerOne
+    updatedUsers[updatedUsers.indexOf(sessionUsers.playerTwo)] = updatedPlayerTwo
+    handleUserUpdate(updatedUsers)
+    closeSession()
   }
 
   if (isStarted) {
-    return <Session sessionUsers={sessionUsers} handleSessionEnd={endSession} handleSessionCancel={cancelSession} />
+    return <Session sessionUsers={sessionUsers} handleSessionEnd={endSession} handleSessionCancel={closeSession} />
   } else {
-    return (
-      <SessionIntro
-        onClick={onOpen}
-        isOpen={isOpen}
-        onClose={onClose}
-        users={users}
-        handleSessionStart={startSession}
-      />
-    )
+    return <SessionIntro users={users} handleSessionStart={openSession} />
   }
 }
 
