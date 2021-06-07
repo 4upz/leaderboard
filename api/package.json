@@ -1,0 +1,19 @@
+{
+  "name": "leaderboard-api",
+  "version": "0.1.0",
+  "private": true,
+  "main": "server.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/node": "^7.14.2",
+    "@babel/preset-env": "^7.14.4",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "build": "babel src/server.js — out-file src/server-compiled.js",
+    "start": "nodemon --exec babel-node src/server.js"
+  }
+}
