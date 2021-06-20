@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
-import LeaderboardContainer from '../Leaderboard/LeaderboardContainer'
+import LeaderboardContainer from './LeaderboardContainer'
 import TopThreeList from './TopThreeList'
-import LeaderboardList from './LeaderBoardList'
+import LeaderboardList from './LeaderboardList'
 import mockUsers from '../mocks/users'
 import leaderboardHelpers from '../utils/leaderboardHelper'
 
